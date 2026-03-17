@@ -8,7 +8,7 @@ Forge is the operational backbone of KamiLimu, a structured eight-month mentorsh
 
 ## What Forge Does
 
-KamiLimu has historically run its operations across Google Sheets, Google Forms, and ad hoc email and WhatsApp communication. Forge replaces this with a purpose-built web platform that manages cohort sessions, attendance, points, graduation eligibility, leaderboards, skill tracking, competitions, and extra activities across six distinct user roles.
+KamiLimu has historically run its operations across Google Sheets, Google Forms, and email and slack communication. Forge replaces and enhances this with a purpose-built web platform that manages cohort sessions, attendance, points, graduation eligibility, leaderboards, skill tracking, competitions, and extra activities across six distinct user roles.
 
 ---
 
