@@ -1,0 +1,282 @@
+/* =============================================================================
+   Forge — Global Design Tokens
+   Single source of truth for all colours, typography, spacing, and other
+   design values used across the frontend.
+
+   All contributors: never hardcode a hex value or pixel value in a component.
+   Always reference a token from this file via a Tailwind class or CSS variable.
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Hind+Guntur:wght@400;500;600;700&display=swap');
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     Brand Colours — Primary Palette
+     --------------------------------------------------------------------------- */
+
+  /* Teal — KamiLimu signature colour. All interactive elements. */
+  --color-teal-100: #e0f7f9;
+  --color-teal-300: #4dd0da;
+  --color-teal-500: #00b4c2;   /* Brand primary */
+  --color-teal-700: #007f8a;
+  --color-teal-900: #003d42;
+
+  /* Black */
+  --color-black: #050505;
+
+  /* Ivory — light mode base surface */
+  --color-ivory: #f8f9f0;
+
+  /* White — component backgrounds, inputs */
+  --color-white: #ffffff;
+
+  /* ---------------------------------------------------------------------------
+     Brand Colours — Secondary Palette
+     --------------------------------------------------------------------------- */
+
+  --color-auburn:    #ac3931;   /* Danger, at-risk, error */
+  --color-gamboge:   #eaa000;   /* Warning, amber graduation status */
+  --color-calPoly:   #214e34;   /* Success, on-track graduation status */
+  --color-indigo:    #1b4864;   /* Info, secondary actions */
+
+  /* ---------------------------------------------------------------------------
+     Semantic Colour Mappings
+     --------------------------------------------------------------------------- */
+
+  --color-primary:              var(--color-teal-500);
+  --color-primary-hover:        var(--color-teal-700);
+  --color-primary-light:        var(--color-teal-100);
+
+  --color-success:              var(--color-calPoly);
+  --color-success-bg:           #d3f0dd;
+  --color-success-text:         var(--color-calPoly);
+
+  --color-warning:              var(--color-gamboge);
+  --color-warning-bg:           #fef3c7;
+  --color-warning-text:         #7c4e00;
+
+  --color-danger:               var(--color-auburn);
+  --color-danger-bg:            #fde8e7;
+  --color-danger-text:          var(--color-auburn);
+
+  --color-info:                 var(--color-indigo);
+  --color-info-bg:              #dce8f0;
+  --color-info-text:            var(--color-indigo);
+
+  /* ---------------------------------------------------------------------------
+     Graduation Status — used in GraduationStatus component
+     --------------------------------------------------------------------------- */
+
+  --color-status-on-track:      var(--color-success);
+  --color-status-on-track-bg:   var(--color-success-bg);
+  --color-status-warning:       var(--color-warning);
+  --color-status-warning-bg:    var(--color-warning-bg);
+  --color-status-at-risk:       var(--color-danger);
+  --color-status-at-risk-bg:    var(--color-danger-bg);
+
+  /* ---------------------------------------------------------------------------
+     Programme Track Colours — used in TrackBadge component
+     --------------------------------------------------------------------------- */
+
+  --color-track-ict:                    var(--color-teal-500);
+  --color-track-ict-bg:                 var(--color-teal-100);
+  --color-track-innovation:             var(--color-indigo);
+  --color-track-innovation-bg:          var(--color-info-bg);
+  --color-track-personal-dev:           var(--color-gamboge);
+  --color-track-personal-dev-bg:        var(--color-warning-bg);
+  --color-track-professional-dev:       var(--color-auburn);
+  --color-track-professional-dev-bg:    var(--color-danger-bg);
+  --color-track-scholarship:            var(--color-calPoly);
+  --color-track-scholarship-bg:         var(--color-success-bg);
+  --color-track-community:              var(--color-black);
+  --color-track-community-bg:           #e8e8e8;
+
+  /* ---------------------------------------------------------------------------
+     Surface Colours — Light Mode
+     --------------------------------------------------------------------------- */
+
+  --color-background:           var(--color-ivory);
+  --color-surface:              var(--color-white);
+  --color-surface-raised:       var(--color-white);
+  --color-border:               #dde0d6;
+  --color-border-strong:        #b8bcb0;
+
+  /* ---------------------------------------------------------------------------
+     Text Colours — Light Mode
+     --------------------------------------------------------------------------- */
+
+  --color-text-primary:         var(--color-black);
+  --color-text-secondary:       #444444;
+  --color-text-muted:           #777777;
+  --color-text-inverse:         var(--color-white);
+  --color-text-on-primary:      var(--color-white);
+
+  /* ---------------------------------------------------------------------------
+     Typography
+     --------------------------------------------------------------------------- */
+
+  /* Font families */
+  --font-mono:  'JetBrains Mono', 'Courier New', monospace;   /* Headings, titles, code */
+  --font-sans:  'Hind Guntur', system-ui, sans-serif;          /* Body, subtitles, UI */
+
+  /* Font sizes — from KamiLimu brand kit */
+  --text-caption:     0.5rem;    /* 8px  — captions (JetBrains Mono) */
+  --text-body:        0.75rem;   /* 12px — body text (Hind Guntur) */
+  --text-quote:       1rem;      /* 16px — quotes (Hind Guntur) */
+  --text-subheading:  1.125rem;  /* 18px — subheadings (Hind Guntur) */
+  --text-section:     1.25rem;   /* 20px — section headers (JetBrains Mono) */
+  --text-subtitle:    1.5rem;    /* 24px — not in kit, interpolated */
+  --text-heading:     2rem;      /* 32px — headings (JetBrains Mono) */
+  --text-subtitle-lg: 2.25rem;   /* 36px — subtitles (Hind Guntur) */
+  --text-title:       2.625rem;  /* 42px — titles (JetBrains Mono) */
+
+  /* Font weights */
+  --font-normal:    400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+
+  /* Line heights */
+  --leading-tight:   1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+
+  /* ---------------------------------------------------------------------------
+     Spacing Scale
+     --------------------------------------------------------------------------- */
+
+  --space-1:   0.25rem;   /* 4px  */
+  --space-2:   0.5rem;    /* 8px  */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+
+  /* ---------------------------------------------------------------------------
+     Border Radius
+     --------------------------------------------------------------------------- */
+
+  --radius-sm:    0.25rem;   /* 4px  */
+  --radius-md:    0.5rem;    /* 8px  */
+  --radius-lg:    0.75rem;   /* 12px */
+  --radius-xl:    1rem;      /* 16px */
+  --radius-2xl:   1.5rem;    /* 24px */
+  --radius-full:  9999px;    /* pill */
+
+  /* ---------------------------------------------------------------------------
+     Shadows
+     --------------------------------------------------------------------------- */
+
+  --shadow-sm:  0 1px 2px rgba(5, 5, 5, 0.06);
+  --shadow-md:  0 4px 6px rgba(5, 5, 5, 0.08);
+  --shadow-lg:  0 10px 15px rgba(5, 5, 5, 0.1);
+  --shadow-xl:  0 20px 25px rgba(5, 5, 5, 0.12);
+
+  /* ---------------------------------------------------------------------------
+     Transitions
+     --------------------------------------------------------------------------- */
+
+  --transition-fast:    150ms ease;
+  --transition-normal:  250ms ease;
+  --transition-slow:    400ms ease;
+
+  /* ---------------------------------------------------------------------------
+     Z-Index Scale
+     --------------------------------------------------------------------------- */
+
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    150;
+  --z-modal:     200;
+  --z-toast:     300;
+  --z-tooltip:   400;
+}
+
+/* =============================================================================
+   Dark Mode
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    /* Surfaces */
+    --color-background:       var(--color-black);
+    --color-surface:          #111111;
+    --color-surface-raised:   #1a1a1a;
+    --color-border:           #2a2a2a;
+    --color-border-strong:    #3a3a3a;
+
+    /* Text */
+    --color-text-primary:     var(--color-ivory);
+    --color-text-secondary:   #cccccc;
+    --color-text-muted:       #888888;
+    --color-text-inverse:     var(--color-black);
+
+    /* Teal stays the same — it works on dark backgrounds */
+    --color-primary:          var(--color-teal-500);
+    --color-primary-hover:    var(--color-teal-300);
+    --color-primary-light:    var(--color-teal-900);
+
+    /* Semantic backgrounds darken */
+    --color-success-bg:       #0e2a1a;
+    --color-warning-bg:       #2a1e00;
+    --color-danger-bg:        #2a0e0e;
+    --color-info-bg:          #0e1e2a;
+
+    /* Track backgrounds darken */
+    --color-track-ict-bg:              var(--color-teal-900);
+    --color-track-innovation-bg:       #0e1e2a;
+    --color-track-personal-dev-bg:     #2a1e00;
+    --color-track-professional-dev-bg: #2a0e0e;
+    --color-track-scholarship-bg:      #0e2a1a;
+    --color-track-community-bg:        #1a1a1a;
+  }
+}
+
+/* =============================================================================
+   Base Styles
+   ============================================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}

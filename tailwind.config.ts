@@ -1,0 +1,177 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './index.html',
+    './src/**/*.{ts,tsx}',
+  ],
+
+  theme: {
+    extend: {
+
+      // -------------------------------------------------------------------------
+      // Colours — mapped to CSS variables in src/styles/globals.css
+      // Never hardcode a hex value in a component. Use these class names instead.
+      // -------------------------------------------------------------------------
+      colors: {
+
+        // Teal scale — KamiLimu signature colour
+        teal: {
+          100: 'var(--color-teal-100)',
+          300: 'var(--color-teal-300)',
+          500: 'var(--color-teal-500)',  // Brand primary
+          700: 'var(--color-teal-700)',
+          900: 'var(--color-teal-900)',
+        },
+
+        // Primary palette
+        primary:    'var(--color-primary)',
+        'primary-hover': 'var(--color-primary-hover)',
+        'primary-light': 'var(--color-primary-light)',
+
+        // Brand secondary colours
+        auburn:   'var(--color-auburn)',
+        gamboge:  'var(--color-gamboge)',
+        calPoly:  'var(--color-calPoly)',
+        indigo:   'var(--color-indigo)',
+
+        // Semantic colours
+        success:  'var(--color-success)',
+        warning:  'var(--color-warning)',
+        danger:   'var(--color-danger)',
+        info:     'var(--color-info)',
+
+        // Semantic background colours
+        'success-bg': 'var(--color-success-bg)',
+        'warning-bg': 'var(--color-warning-bg)',
+        'danger-bg':  'var(--color-danger-bg)',
+        'info-bg':    'var(--color-info-bg)',
+
+        // Graduation status colours
+        'status-on-track':    'var(--color-status-on-track)',
+        'status-on-track-bg': 'var(--color-status-on-track-bg)',
+        'status-warning':     'var(--color-status-warning)',
+        'status-warning-bg':  'var(--color-status-warning-bg)',
+        'status-at-risk':     'var(--color-status-at-risk)',
+        'status-at-risk-bg':  'var(--color-status-at-risk-bg)',
+
+        // Programme track colours
+        track: {
+          ict:             'var(--color-track-ict)',
+          'ict-bg':        'var(--color-track-ict-bg)',
+          innovation:      'var(--color-track-innovation)',
+          'innovation-bg': 'var(--color-track-innovation-bg)',
+          'personal-dev':     'var(--color-track-personal-dev)',
+          'personal-dev-bg':  'var(--color-track-personal-dev-bg)',
+          'professional-dev':    'var(--color-track-professional-dev)',
+          'professional-dev-bg': 'var(--color-track-professional-dev-bg)',
+          scholarship:     'var(--color-track-scholarship)',
+          'scholarship-bg':'var(--color-track-scholarship-bg)',
+          community:       'var(--color-track-community)',
+          'community-bg':  'var(--color-track-community-bg)',
+        },
+
+        // Surface colours
+        background:      'var(--color-background)',
+        surface:         'var(--color-surface)',
+        'surface-raised':'var(--color-surface-raised)',
+        border:          'var(--color-border)',
+        'border-strong': 'var(--color-border-strong)',
+
+        // Text colours
+        'text-primary':   'var(--color-text-primary)',
+        'text-secondary': 'var(--color-text-secondary)',
+        'text-muted':     'var(--color-text-muted)',
+        'text-inverse':   'var(--color-text-inverse)',
+      },
+
+      // -------------------------------------------------------------------------
+      // Typography — KamiLimu brand fonts
+      // font-mono = JetBrains Mono (headings, titles, section headers, captions)
+      // font-sans = Hind Guntur (body, subtitles, subheadings, quotes)
+      // -------------------------------------------------------------------------
+      fontFamily: {
+        mono: 'var(--font-mono)',
+        sans: 'var(--font-sans)',
+      },
+
+      // Font sizes from the KamiLimu brand kit
+      fontSize: {
+        caption:     'var(--text-caption)',     // 8px  — JetBrains Mono
+        body:        'var(--text-body)',         // 12px — Hind Guntur
+        quote:       'var(--text-quote)',        // 16px — Hind Guntur
+        subheading:  'var(--text-subheading)',   // 18px — Hind Guntur
+        section:     'var(--text-section)',      // 20px — JetBrains Mono
+        subtitle:    'var(--text-subtitle)',     // 24px
+        heading:     'var(--text-heading)',      // 32px — JetBrains Mono
+        'subtitle-lg': 'var(--text-subtitle-lg)', // 36px — Hind Guntur
+        title:       'var(--text-title)',        // 42px — JetBrains Mono
+      },
+
+      // -------------------------------------------------------------------------
+      // Spacing — maps to CSS variable scale
+      // -------------------------------------------------------------------------
+      spacing: {
+        '1':  'var(--space-1)',
+        '2':  'var(--space-2)',
+        '3':  'var(--space-3)',
+        '4':  'var(--space-4)',
+        '5':  'var(--space-5)',
+        '6':  'var(--space-6)',
+        '8':  'var(--space-8)',
+        '10': 'var(--space-10)',
+        '12': 'var(--space-12)',
+        '16': 'var(--space-16)',
+        '20': 'var(--space-20)',
+      },
+
+      // -------------------------------------------------------------------------
+      // Border Radius
+      // -------------------------------------------------------------------------
+      borderRadius: {
+        sm:   'var(--radius-sm)',
+        md:   'var(--radius-md)',
+        lg:   'var(--radius-lg)',
+        xl:   'var(--radius-xl)',
+        '2xl':'var(--radius-2xl)',
+        full: 'var(--radius-full)',
+      },
+
+      // -------------------------------------------------------------------------
+      // Box Shadows
+      // -------------------------------------------------------------------------
+      boxShadow: {
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)',
+        xl: 'var(--shadow-xl)',
+      },
+
+      // -------------------------------------------------------------------------
+      // Transitions
+      // -------------------------------------------------------------------------
+      transitionDuration: {
+        fast:   '150ms',
+        normal: '250ms',
+        slow:   '400ms',
+      },
+
+      // -------------------------------------------------------------------------
+      // Z-Index
+      // -------------------------------------------------------------------------
+      zIndex: {
+        base:     '0',
+        raised:   '10',
+        dropdown: '100',
+        sticky:   '150',
+        modal:    '200',
+        toast:    '300',
+        tooltip:  '400',
+      },
+    },
+  },
+
+  plugins: [],
+}
+
+export default config
