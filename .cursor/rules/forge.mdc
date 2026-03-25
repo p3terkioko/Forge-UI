@@ -1,0 +1,88 @@
+---
+description: Forge frontend — all development rules for this repository
+globs: src/**/*.{ts,tsx}
+alwaysApply: true
+---
+
+# Forge Frontend Rules
+
+You are working on the Forge frontend: the mentorship management system for the KamiLimu programme in Kenya. Read `README.md` for full project context. Read `CONVECTIONS.md` for the complete code and design standards.
+
+## Stack
+
+- React 18 + TypeScript strict mode + Vite + Tailwind CSS
+- Design tokens in `src/styles/global.css` — never hardcode a hex or pixel value
+- `font-mono` = JetBrains Mono (headings, labels, buttons, captions)
+- `font-sans` = Hind Guntur (body text, subtitles, descriptions)
+- API documentation at `http://localhost:8000/api/v1/docs`
+
+## What Is Already Built — Do Not Rebuild
+
+- `src/lib/api.ts` — API client. Use `api.auth.*` and `api.users.*`. Never call `fetch()` anywhere else.
+- `src/types/auth.ts` — All auth and user type definitions.
+- `src/hooks/useAuth.ts` — Auth context. Use `useAuth()` to access the current user. Do not create another auth mechanism.
+- `src/pages/Login.tsx`, `Activate.tsx`, `ForgotPassword.tsx`, `ResetPassword.tsx` — Complete auth pages.
+- `src/components/ui/Button.tsx`, `Input.tsx`, `Spinner.tsx` — Do not duplicate. Check `src/components/README.md` before building any component.
+
+## Component Rules
+
+- Props interface defined above the component
+- Named exports only — never `export default`
+- No business logic in components — put it in a hook in `src/hooks/`
+- Every component handles: loading, empty, error, and success states
+- Every new component ships with a `.stories.tsx` alongside it
+
+## Styling Rules
+
+```tsx
+// WRONG
+style={{ color: '#00b4c2' }}
+className="text-[#00b4c2]"
+style={{ marginTop: '16px' }}
+
+// CORRECT
+className="text-teal-500"
+className="mt-4"
+```
+
+Mobile-first always:
+```tsx
+// WRONG
+className="flex-row md:flex-col"
+
+// CORRECT
+className="flex-col md:flex-row"
+```
+
+## API Rules
+
+```tsx
+// WRONG
+const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/sessions`)
+
+// CORRECT
+import { api } from '@/lib/api'
+const sessions = await api.sessions.list(cohortId)
+```
+
+## TypeScript Rules
+
+- No `any` — ever. Use `unknown` and narrow.
+- All API response shapes typed in `src/types/`
+- Every hook has typed parameters and return value
+
+## State Rules
+
+```tsx
+// WRONG — logic in component
+function SessionList() {
+  const [data, setData] = useState([])
+  useEffect(() => { fetch('/sessions').then(r => r.json()).then(setData) }, [])
+}
+
+// CORRECT — logic in hook
+function useSessions(cohortId: string) { /* fetch, state, error here */ }
+function SessionList() {
+  const { sessions, isLoading, error } = useSessions(cohortId)
+}
+```

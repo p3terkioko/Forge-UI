@@ -144,9 +144,19 @@ Closes #[issue number]
 
 ## AI Tools
 
-Claude Code and GitHub Copilot are both welcome and encouraged. AI-generated code is held to the same standard as human-written code and goes through the same PR review. The contributor is responsible for the quality of whatever they submit regardless of how it was generated.
+AI coding agents are welcome and encouraged. AI-generated code is held to the same standard as human-written code — same PR review, same lint and typecheck requirements. The contributor is responsible for the quality of whatever they submit regardless of how it was generated.
 
-Claude Code reads `CLAUDE.md` automatically when working in this repo. This file contains Forge-specific instructions that guide Claude Code to follow the correct patterns. If you are using Claude Code, you do not need to manually brief it on the conventions — CLAUDE.md handles that.
+Read **`AGENTS.md`** for the full guide on which configuration file each tool reads and how to invoke it correctly for this project. The supported agents are:
+
+| Tool | Config file | Loaded |
+|---|---|---|
+| Claude Code | `CLAUDE.md` | Automatically |
+| GitHub Copilot | `.github/copilot-instructions.md` | Automatically |
+| Cursor | `.cursor/rules/forge.mdc` | Automatically |
+| Windsurf | `.windsurfrules` | Automatically |
+| Aider | `CONVENTIONS.md` | Automatically |
+
+None of these require manual briefing — each tool picks up its config file automatically when you open this repository.
 
 ---
 

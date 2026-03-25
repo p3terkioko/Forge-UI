@@ -2,6 +2,8 @@
 
 You are working on the frontend repository for Forge, the mentorship management system for KamiLimu — a structured eight-month mentorship programme for undergraduate students in Kenya. Read README.md for full project context before generating anything.
 
+Other AI agents working in this repo have their own config files — see AGENTS.md. Do not duplicate or conflict with work done by other agents. The rules in this file, CONVECTIONS.md, and CONTRIBUTING.md apply to all of them equally.
+
 ---
 
 ## The Stack

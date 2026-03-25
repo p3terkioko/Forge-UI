@@ -1,0 +1,57 @@
+# Forge Frontend — Windsurf Rules
+
+You are working on the Forge frontend: the mentorship management system for the KamiLimu programme in Kenya. Read `README.md` for full project context. Read `CONVECTIONS.md` for the complete code and design standards.
+
+## Stack
+
+- React 18 + TypeScript strict mode + Vite + Tailwind CSS
+- Design tokens in `src/styles/global.css` — never hardcode a hex value or pixel value
+- `font-mono` = JetBrains Mono (headings, labels, buttons, captions)
+- `font-sans` = Hind Guntur (body text, subtitles, descriptions)
+- API documentation at `http://localhost:8000/api/v1/docs`
+
+## What Is Already Built — Do Not Rebuild
+
+- `src/lib/api.ts` — The only API client. Exports `api` (`api.auth.*`, `api.users.*`) and `tokenStore`. Never use `fetch()` anywhere else.
+- `src/types/auth.ts` — All auth and user type definitions. Add new types to `src/types/` in their own file.
+- `src/hooks/useAuth.ts` — Auth context and `useAuth()` hook. Do not create another auth state mechanism.
+- `src/pages/Login.tsx`, `Activate.tsx`, `ForgotPassword.tsx`, `ResetPassword.tsx` — Complete. Do not rebuild.
+- `src/components/ui/Button.tsx`, `Input.tsx`, `Spinner.tsx` — Exist. Check `src/components/README.md` before building any component.
+
+## Non-negotiable Rules
+
+### Components
+- Props interface above every component
+- Named exports only — no `export default`
+- Business logic in `src/hooks/` — components call hooks and render, nothing else
+- All four states handled: loading, empty, error, success
+- Every new component has a `.stories.tsx` file alongside it in the same folder
+
+### Styling
+- Never hardcode a hex value: use `text-teal-500`, `bg-auburn`, `text-text-primary` etc.
+- Never hardcode a pixel value: use `gap-4`, `px-6`, `mt-8` etc.
+- Mobile-first: write for 375px first, then `md:` and `lg:` breakpoints
+
+### API
+- `import { api } from '@/lib/api'` — always. Never `fetch()` in a component or hook.
+- New API response shapes go in `src/types/` in a dedicated file
+
+### TypeScript
+- Strict mode is on — zero `any`. Use `unknown` and narrow.
+- Every hook has typed parameters and a typed return value
+
+### Async form handlers
+- Wrap async handlers on form `onSubmit` in `void`:
+  `onSubmit={(e) => { void handleSubmit(e) }}`
+
+## File Locations
+
+```
+src/components/ui/      Generic reusable — Button, Input, Spinner, Badge, Card…
+src/components/forge/   Forge domain — SessionRow, GraduationStatus, TrackBadge…
+src/components/layout/  Shell — Sidebar, TopBar, PageWrapper
+src/hooks/              All custom hooks — business logic lives here
+src/lib/api.ts          The only API client
+src/types/              TypeScript types for all API shapes
+src/pages/              One file per route
+```
